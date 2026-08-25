@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.app.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_contairner_form"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_logo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="#1F2937"
+            app:cardCornerRadius="16dp">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc_logo"
+                app:srcCompat="@drawable/aded4a36_c05e_4fa1_8418_57cca21fd02b_removebg_preview" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_tituloregistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/title_create_account"
+            android:textAlignment="center"
+            android:textColor="#1D1D21"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/tv_subtitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/subtitle_registration"
+            android:textColor="#6B7280"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_containerasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_namelogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:letterSpacing="0.05"
+                android:text="@string/label_full_name"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="name"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_full_name"
+                android:importantForAutofill="yes"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tv_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
+                android:text="@string/label_email"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="emailAddress"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_email"
+                android:importantForAutofill="yes"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/tv_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/label_phone"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_phone"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="phone"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_phone"
+                android:importantForAutofill="yes"
+                android:inputType="phone"
+                android:textColorLink="#4A5568"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tv_panel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
+                android:text="@string/label_panel"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_panel"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="organizationName"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_panel"
+                android:importantForAutofill="yes"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tv_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
+                android:text="@string/label_password"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="password"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_password"
+                android:importantForAutofill="yes"
+                android:inputType="textPassword" />
+
+            <TextView
+                android:id="@+id/tv_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.05"
+                android:text="@string/label_confirm_password"
+                android:textAllCaps="true"
+                android:textColorLink="#4A5568"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_confirmpassword"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:autofillHints="password"
+                android:background="@drawable/bg_input_field"
+                android:ems="10"
+                android:hint="@string/hint_confirm_password"
+                android:importantForAutofill="yes"
+                android:inputType="textPassword" />
+
+            <!-- CheckBox con texto de Tratamiento de Datos -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <CheckBox
+                    android:id="@+id/cb_aceptar_datos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_tratamiento_datos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_data_policy"
+                    android:textColor="#2563EB"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_crearcuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_create_account"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#1F2937"
+            app:cornerRadius="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_info1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="@string/text_already_have_account"
+                android:textColor="#4A5568"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tv_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_login"
+                android:textColor="#1F2937"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/text_terms_protocol"
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
