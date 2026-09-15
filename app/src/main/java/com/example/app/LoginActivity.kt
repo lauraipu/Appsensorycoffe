@@ -125,11 +125,10 @@ class LoginActivity : AppCompatActivity() {
                 usuarioTexto == emailRegistrado &&
                 passwordTexto == passwordRegistrada
             ) {
-                Toast.makeText(
-                    this@LoginActivity,
-                    "¡Bienvenido!",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                intent.putExtra("USER_EMAIL", usuarioTexto)
+                startActivity(intent)
+                finish()
             } else {
 
                 Toast.makeText(

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "nombre": "Naturales Brasileños — Lote 2026",
+    "formato": "Combinado",
+    "fecha": "2026-04-21",
+    "numeroMuestras": 8,
+    "catadoresCount": 4,
+    "estado": "En progreso"
+  },
+  {
+    "id": "2",
+    "nombre": "Lavados Colombianos — Cosecha Abril",
+    "formato": "Combinado",
+    "fecha": "2026-04-20",
+    "numeroMuestras": 6,
+    "catadoresCount": 5,
+    "estado": "Completada"
+  },
+  {
+    "id": "3",
+    "nombre": "Etíopes Heirloom — Sidamo G1",
+    "formato": "Descriptivo",
+    "fecha": "2026-04-18",
+    "numeroMuestras": 10,
+    "catadoresCount": 7,
+    "estado": "Completada"
+  }
+]
