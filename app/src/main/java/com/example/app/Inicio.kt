@@ -1,20 +1,27 @@
 package com.example.app
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.example.app.network.SupabaseClientProvider
+import io.github.jan.supabase.gotrue.auth
+import kotlinx.coroutines.launch
 
 class Inicio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_inicio)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        lifecycleScope.launch {
+            // Verificar sesión activa en Supabase
+            val session = SupabaseClientProvider.client.auth.currentSessionOrNull()
+            if (session != null) {
+                startActivity(Intent(this@Inicio, DashboardActivity::class.java))
+            } else {
+                startActivity(Intent(this@Inicio, MainActivity::class.java))
+            }
+            finish()
         }
     }
 }

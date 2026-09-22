@@ -10,6 +10,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
+import com.example.app.network.SupabaseClientProvider
+import io.github.jan.supabase.gotrue.auth
+import io.github.jan.supabase.gotrue.providers.builtin.Email
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,13 +34,6 @@ class LoginActivity : AppCompatActivity() {
         val btnEntrar = findViewById<Button>(R.id.btn_login)
         val irCrearCuenta = findViewById<TextView>(R.id.tv_ir_registro)
 
-        val emailRegistrado = intent.getStringExtra("USER_EMAIL")
-        val passwordRegistrada = intent.getStringExtra("USER_PASSWORD")
-
-        if (!emailRegistrado.isNullOrEmpty()) {
-            usuario.setText(emailRegistrado)
-        }
-
         btnEntrar.setOnClickListener {
             val usuarioTexto = usuario.text.toString().trim()
             val passwordTexto = password.text.toString()
@@ -45,10 +43,22 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if (usuarioTexto == emailRegistrado && passwordTexto == passwordRegistrada) {
-                Toast.makeText(this@LoginActivity, R.string.success_welcome_test, Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this@LoginActivity, R.string.error_invalid_credentials, Toast.LENGTH_SHORT).show()
+            // Inicio de Sesión asíncrono con Supabase Auth
+            lifecycleScope.launch {
+                try {
+                    SupabaseClientProvider.client.auth.signInWith(Email) {
+                        email = usuarioTexto
+                        this.password = passwordTexto
+                    }
+                    Toast.makeText(this@LoginActivity, "¡Bienvenido de nuevo!", Toast.LENGTH_SHORT).show()
+
+                    // Redirigir al Dashboard principal
+                    val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } catch (e: Exception) {
+                    Toast.makeText(this@LoginActivity, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                }
             }
         }
 

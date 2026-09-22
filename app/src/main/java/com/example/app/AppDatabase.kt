@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 // @Database = "la instancia real del archivo .db en el celular"
-@Database(entities = [Sesion::class], version = 1, exportSchema = false)
+@Database(entities = [SesionLocal::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun sesionDao(): SesionDao

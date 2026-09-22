@@ -4,17 +4,22 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-// @Dao = "las operaciones que se pueden hacer sobre la tabla sesiones"
+@Entity(tableName = "sesiones_locales")
+data class SesionLocal(
+    @PrimaryKey val id: String,
+    val nombre: String,
+    val codigo_sesion: String,
+    val estado: String
+)
+
 @Dao
 interface SesionDao {
+    @Query("SELECT * FROM sesiones_locales")
+    fun obtenerTodas(): List<SesionLocal>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertarTodas(sesiones: List<Sesion>)
-
-    @Query("SELECT * FROM sesiones ORDER BY fecha DESC")
-    suspend fun obtenerTodas(): List<Sesion>
-
-    @Query("SELECT COUNT(*) FROM sesiones")
-    suspend fun contar(): Int
+    fun insertar(sesion: SesionLocal)
 }
